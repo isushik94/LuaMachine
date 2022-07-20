@@ -12,7 +12,11 @@
 #include "IImageWrapper.h"
 #include "IImageWrapperModule.h"
 #include "IPlatformFilePak.h"
-#include "HAL/PlatformFilemanager.h"
+#if !defined(ENGINE_MAJOR_VERSION) || ENGINE_MAJOR_VERSION < 5
+#include "HAL/PlatformFilemanager.h"  // UE4
+#else
+#include "HAL/PlatformFileManager.h"  // UE5
+#endif
 #include "IAssetRegistry.h"
 #include "AssetRegistryModule.h"
 #include "Misc/FileHelper.h"
